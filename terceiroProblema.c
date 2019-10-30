@@ -2,7 +2,7 @@
     Ana Carolina Fainelo de Oliveira 
     28/10/2019
     
-    Program that finds the longgest Fibonacci Like Sequence on some array.
+    Program that finds the longgest Fibonacci Like Sequence in an array.
 */
 
 #include <stdio.h>
