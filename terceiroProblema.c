@@ -2,8 +2,7 @@
     Ana Carolina Fainelo de Oliveira 
     28/10/2019
     
-    Programa que recebe como entrada uma configuracao de jogo da velha e indica quem ganhou, se houve empate,
-    se a configuracao eh invalida ou quem eh o proximo a jogar.
+    Program that finds the longgest Fibonacci Like Sequence on some array.
 */
 
 #include <stdio.h>
