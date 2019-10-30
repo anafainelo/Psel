@@ -68,14 +68,16 @@ int binarySearch(int numberToFind, int size, int* array, int* postion){
 //-----------------------------------------------------------------------------------------------------------------------
 /*CONSIDERING REPEATED VALUES IN THE ARRAY...
     if i found a number but it was already visited, I go through the array in both directions looking for a 
-    neighbor with the same value not visited yet*/
+    neighbor with the same value that hasn't been visited yet*/
 int repeatedNonVisitedValues(int size, int* array, int* pos, int* visitedPositions){
     int initialPos = *pos;
+    //looking backward in the array
     while(*pos-1 >= 0) {
         *pos -= 1;
         if(array[*pos] == array[initialPos] && visitedPositions[*pos] == VISITED) return FOUND;
         
     }
+    //looking forward in the array 
     *pos = initialPos;
     while(*pos+1 < size) {
         *pos += 1;
@@ -102,17 +104,22 @@ int sizeOfFibLikeSubseq(int f0, int f1, int size, int* array){
         f0 = f1;
         f1 = nextF;
 
+        //looking for that number in the array
         status = binarySearch(nextF, size, array, &pos);
 
+         
         if(status == FOUND) {
+            //if the number was found in the array and hasn't been considered in the fibonnaci like sequence yet
             if(visitedPositions[pos] == NON_VISITED) {
                 visitedPositions[pos] = VISITED;
                 sizeOfFibSeq++; 
             }
+            //if the number was found in the array but has already been considered in the fibonnaci like sequence
             else if (repeatedNonVisitedValues(size, array, &pos, visitedPositions) == FOUND){
                 visitedPositions[pos] = VISITED;
                 sizeOfFibSeq++; 
             }
+            //All positions with this value in the array were already considered in the fibonacci like sequence
             else status = NOT_FOUND;
         } 
 
